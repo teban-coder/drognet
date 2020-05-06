@@ -31,7 +31,7 @@ class HomeController extends Controller
 	{
 		$productos = \DB::table('productos')
 		->join('tipomedicamentos','tipomedicamentos.IdTipoMedicamento','productos.IdTipoMedicamento')
-		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen','productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip')->paginate(3);
+		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen','productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip')->paginate(10);
 
 		return view('productos/home',['productos'=>$productos]);
 	}
