@@ -17,7 +17,7 @@ class PedidoController extends Controller
 		$envio = 100;
 
 		if (count($carrito) <= 0) {
-			return \Redirect::route('productos.home')
+			return \Redirect::route('products.home')
 				->with('message', 'Elija los productos que desea comprar');
 		}
  
@@ -42,7 +42,7 @@ class PedidoController extends Controller
 
 		\Session::forget('carrito');
 
-		return redirect()->route('productos.home')
+		return redirect()->route('products.home')
 			->with('msg', 'Hemos recibido tu pedido y te enviamos un correo de seguimiento, gracias por tu preferencia');
 	}
  

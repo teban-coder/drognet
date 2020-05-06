@@ -35,31 +35,6 @@ route::get('products/detail-{Id}','HomeController@detail')->name('products.detai
 route::get('opinion','HomeController@opinion')->name('opinion');
 route::post('opinion-store','HomeController@opinionStore')->name('opinion.store');
 
-//Rutas para la tabla quejaSugerencia
-Route::get('/admin/Contacto/Listar','QuejasugerenciaController@index')->name('quejas.index');
-Route::get('/admin/Contacto/Create','QuejasugerenciaController@create')->name('quejas.create');
-Route::post('/admin/Contacto/Agregar','QuejasugerenciaController@store')->name('quejas.store');
-route::get('/admin/Contacto/editar/{Id}','QuejasugerenciaController@edit')->name('quejas.edit');
-route::get('/admin/Contacto/update/{Id}','QuejasugerenciaController@update')->name('quejas.update');
-route::get('/admin/Contacto/eliminar/{Id}','QuejasugerenciaController@destroy')->name('quejas.destroy');
-
-//Rutas para la tabla Usuarios
-/* Route::get('/admin/Usuarios/Listar','UsuariosController@index')->name('usuarios.index');
- route::get('/admin/Usuarios/Editar/{id}','UsuariosController@edit')->name('usuarios.editar');
-route::get('/admin/Usuarios/update/{id}','UsuariosController@update')->name('usuarios.update');
-route::get('/admin/Usuarios/eliminar/{id}','UsuariosController@destroy')->name('usuarios.eliminar');*/
-
-//Rutas para la tabla TipoMecicamentos
-
-/*route::get('/admin/Tipomedicamento/Listar','TipomedicamentoController@index')->name('medicamentos.index');
-Route::get('/admin/Tipomedicamento/Create','TipoMedicamentoController@create')->name('medicamentos.create');
-Route::post('/admin/Tipomedicamento/Agregar','TipoMedicamentoController@store')->name('medicamentos.store');
-route::get('/admin/Tipomedicamento/Editar/{Id}','TipoMedicamentoController@edit')->name('medicamentos.edit');
-route::get('/admin/Tipomedicamento/update/{Id}','TipoMedicamentoController@update')->name('medicamentos.update');
-route::get('/admin/Tipomedicamento/eliminar/{Id}','TipoMedicamentoController@destroy')->name('medicamentos.destroy');*/
-
-
-
 //Rutas para el carrito
 Route::get('/Carrito/carrito', 'CarritoController@show')->name('carrito.carrito');
 Route::get('/Carrito/create/{productos}', 'CarritoController@create')->name('carrito.create');
@@ -74,7 +49,6 @@ Route::get('pedido/procesar', 'PedidoController@procesar')->name('pedido.procesa
 //Rutas para realizar el pago con paypal
 //Route::get('/payment', array('PaypalController@postPayment'))->name('payment.payment');
 //Route::get('payment/status', array('PaypalController@getPayment'))->name('payment.status');
-
 
 
 // Panel de administración
