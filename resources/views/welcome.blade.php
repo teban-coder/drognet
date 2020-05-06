@@ -233,7 +233,7 @@
                           óptima te ayudará a reconocer errores que pueden derivar en pérdidas.
                     </p>
                     <hr>
-                  <a href="{{route('quejas.create')}}" class="btn btn-primary mt-3 text-uppercase">Realizar</a>
+                  <a href="{{route('opinion')}}" class="btn btn-primary mt-3 text-uppercase">Realizar</a>
              <hr>
                 </div>
             </div>
