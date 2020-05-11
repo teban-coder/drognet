@@ -1,8 +1,25 @@
 @extends('layouts.app')
 @section('content')
+<div class="bg-light py-3">
+	<div class="container">
+	  <div class="row">
+	  <div class="col-md-12 mb-0"><a href="{{ url('/') }}">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Contactenos</strong></div>
+	  </div>
+	</div>
+  </div>
 <div class="site-section">
 	<div class="container">
 		<h2 class="h3 mb-5 text-black">Ponerse en contacto</h2>
+
+		@if (count($errors))
+			<div class="alert alert-danger">
+				@foreach ($errors->all() as $error)
+					<ul>
+						<li>{{ $error }}</li>
+					</ul>
+				@endforeach
+			</div>
+		@endif
 
 		<form action="{{ route('opinion.store')}}" method="post">
 			@csrf

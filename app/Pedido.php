@@ -13,7 +13,7 @@ class Pedido extends Model
 	];
 
 	protected $fillable = [
-	   'id','user_id', 'tipopago_id', 'fecha', 'referencia', 'envio', 'subtotal'
+	   'id','user_id','tipopago_id', 'fecha', 'referencia', 'envio', 'subtotal'
 	];
 
 	public function pedidoItems()

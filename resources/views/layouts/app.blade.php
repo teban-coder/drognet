@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Drognet') }}</title>
+    <title>Drogueria las nieves</title>
 
     <!-- Scripts 
     <script src="{{ asset('js/app.js') }}" defer></script>-->
@@ -21,7 +21,7 @@
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css')}}">
   
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
@@ -52,14 +52,10 @@
                   <li class="active"><a href="{{ url('/') }}">Inicio</a></li>
                   <li><a href="{{ route('products.home') }}">Tienda</a></li>
                   <li><a href="{{  url('/Nosotros') }}">Nosotros</a></li>
-                  <li><a href="{{ route('opinion') }}">QuejaSugerencia</a></li>
-                <a href="{{url('/Carrito/carrito')}}"><i class="fa fa-shopping-cart"></i></a>   
-                    
+                  <li><a href="{{ route('opinion') }}">Contactenos</a></li>
+                  <a href="{{url('/Carrito/carrito')}}"><i class="fa fa-shopping-cart"></i></a>     
                       &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;
                       &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;
-                    
-                     
-                  
                   @guest
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesion') }}</a>
@@ -72,7 +68,7 @@
               @else
                   @if (in_array(Auth::user()->rol, ['admin', 'vendedor']))
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ route('admin.products.index') }}">Admin</a>
+                      <a class="nav-link" href="{{ route('admin.products.index') }}">Panel - Admin</a>
                     </li>
                   @endif
                   <li class="nav-item dropdown">
@@ -135,7 +131,7 @@
                     <ul class="list-unstyled">
                       <li class="address">Las Nieves - Tunja</li>
                       <li class="phone"><a href="tel://23923929210">+57 317 224 89 06</a></li>
-                      <li class="email"></li>
+                      <li class="email">drogueria.nieves@gmail.com</li>
                     </ul>
                   </div>
       
@@ -147,7 +143,7 @@
                   <p>
                     Copyright &copy;
                     <script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Desarrollado
-                    por Esteban Martinez <i class="icon-heart" aria-hidden="true"></i>
+                    por Esteban Martinez y Brayan Santafe <i class="icon-power-off" aria-hidden="true"></i>
                   </p>
                 </div>
       

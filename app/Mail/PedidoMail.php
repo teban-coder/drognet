@@ -11,7 +11,7 @@ class PedidoMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $pedido;
+    public $pedido; //Aqui vinculo la informacion del pedido y del carrito y las guarda
     public $carrito;
 
     /**
@@ -21,8 +21,8 @@ class PedidoMail extends Mailable
      */
     public function __construct($pedido, $carrito)
     {
-        $this->pedido = $pedido;
-        $this->carrito = $carrito;
+        $this->pedido = $pedido;  //Aqui seteamos o vinculamos la informacion de las variables que le pasamos como parametro en el controlador
+        $this->carrito = $carrito; 
     }
 
     /**
@@ -30,8 +30,8 @@ class PedidoMail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build() //Toda la informacion de esas dos variables las va a pasar a mi vista emails.pedido
     {
-        return $this->subject('Pedido en Tienda en línea')->view('emails.pedido');
+        return $this->subject('Pedido de drogueria las nieves en linea')->view('emails.pedido'); 
     }
 }

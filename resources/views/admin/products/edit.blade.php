@@ -1,8 +1,16 @@
 @extends('admin.app')
 
 @section('content')
-	<h3 class="text-center p-3">ADMIN. PRODUCTOS <small>[Editar producto]</small></h3>
-
+	<h3 class="text-center p-3"><small>Editar producto</small></h3>
+	@if(count($errors))
+	<div class="alert alert-danger">
+		<ul>
+			@foreach ($errors->all() as $error)
+				<li class="fa fa-danger">{{ $error }}</li>
+			@endforeach
+		</ul>
+	</div>
+@endif 
 	<form action="{{route('admin.products.update', $productos->IdProducto)}}" method="POST" class="p-3 form" enctype="multipart/form-data">
 		@csrf
 		<div class="row justify-content-md-center">
@@ -59,9 +67,10 @@
 				</div>       
 			 
 				<button class="btn btn-primary">Actualizar</button>
-				<a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Regresar</a>
 			</div>
 		</div>
 		
 	</form>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{{ route('admin.products.index')}}" class="btn btn-outline-secondary btn-md ">regresar &nbsp;<i class="fa fa-return"></i> </a>
 @endsection

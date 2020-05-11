@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-		
+	<div class="bg-light py-3">
+		<div class="container">
+		  <div class="row">
+		  <div class="col-md-12 mb-0"><a href="{{ url('/') }}">Inicio</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Tienda</strong></div>
+		  </div>
+		</div>
+	  </div>	
 	<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
 		<h1 class="display-4 mt-4">Lista de Productos</h1>
 		<p class="lead">Selecciona uno de nuestros productos </p>

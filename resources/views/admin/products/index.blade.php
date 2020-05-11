@@ -2,14 +2,7 @@
 @section('content')
 <div class="container">
 
-	<h3 class="text-center p-3">
-		ADMIN. PRODUCTOS 
-		@if (Auth::user()->rol == 'admin')
-			<a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-				<i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar
-			</a>
-		@endif
-	</h3>
+	<h3 class="text-center p-3">Productos</h3>
 
 	<div class="table-responsive">
 		<table class="table table-striped table-bordered">
@@ -37,6 +30,9 @@
 					<td>{{$item->FechaVencimiento}}</td>
 					<td class="text-center">
 						@if (Auth::user()->rol == 'admin')
+						<a href="{{ route('admin.products.create', $item->IdProducto) }}" class="btn btn-primary">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+						</a>
 							<a href="{{ route('admin.products.edit', $item->IdProducto) }}" class="btn btn-warning">
 								<i class="fa fa-pencil" aria-hidden="true"></i>
 							</a>

@@ -14,6 +14,7 @@
 				<th>Envío</th>
 				<th>Total</th>
 				<th>Referencia</th>
+				<th>Direccion</th>
 			</thead> 
 			<tbody>
 				<tr>
@@ -24,6 +25,7 @@
 					<td>{{ number_format($pedido->envio, 2) }}</td>
 					<td>{{ number_format($pedido->subtotal + $pedido->envio, 2) }}</td>
 					<td>{{ $pedido->referencia }}</td>
+					<td>{{ $pedido->user->Direccion }}</td>
 				</tr>
 			</tbody>
 		</table>

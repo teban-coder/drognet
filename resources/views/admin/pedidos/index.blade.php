@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 
-	<h3 class="text-center p-3">ADMIN. PEDIDOS</h3>
+	<h3 class="text-center p-3">Facturas</h3>
 
 	<div class="table-responsive">
 		<table class="table table-striped table-bordered">
@@ -17,10 +17,11 @@
 				<th>Acciones</th>
 			</thead> 
 			<tbody>
+			
 				@forelse ($pedidos as $item)
 				<tr>
 					<td>{{ $item->fecha->format('d/m/Y') }}</td>
-					<td>{{ $item->user->name }}</td>
+			     	<td>{{ $item->user->name}}</td>
 					<td>Contra entrega</td>
 					{{-- <td>{{ $item->tipopago_id }}</td> --}}
 					<td>{{ number_format($item->subtotal, 2) }}</td>

@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
 	};
 	slider();
 
-
+}
 	var siteMenuClone = function() {
 
 		$('<div class="site-mobile-menu"></div>').prependTo('.site-wrap');

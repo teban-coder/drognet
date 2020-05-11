@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 
-	<h3 class="text-center p-3">ADMIN. USUARIOS</h3>
+	<h3 class="text-center p-3"> USUARIOS</h3>
 
 	<div class="table-responsive">
 		<table class="table table-striped table-bordered">
@@ -24,9 +24,9 @@
 					<td>{{ $item->Direccion }}</td>
 					<td class="text-center">
 						@if (Auth::user()->rol == 'admin')
-							<a href="{{ route('admin.users.reset', $item->id) }}" class="btn btn-secondary">
+							{{-- <a href="{{ route('admin.users.reset', $item->id) }}" class="btn btn-secondary">
 								<i class="fa fa-key" aria-hidden="true"></i>
-							</a>
+							</a>  --}}
 							<a href="{{ route('admin.users.edit', $item->id) }}" class="btn btn-warning">
 								<i class="fa fa-pencil" aria-hidden="true"></i>
 							</a>

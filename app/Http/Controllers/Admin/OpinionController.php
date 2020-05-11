@@ -39,6 +39,7 @@ class OpinionController extends Controller
 		$opinion = Opinion::findOrFail($Id);
 		$opinion->delete();
 		
-		return redirect()->route('admin.opinions.index');
+		return redirect()->route('admin.opinions.index')
+		->with('msg', 'Se ha eliminado correctamente');
 	}
 }

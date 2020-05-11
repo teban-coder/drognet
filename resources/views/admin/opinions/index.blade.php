@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 
-	<h3 class="text-center p-3">ADMIN. QUEJAS Y SUGERENCIAS</h3>
+	<h3 class="text-center p-3">QUEJAS Y SUGERENCIAS</h3>
 
 	<div class="table-responsive">
 		<table class="table table-striped table-bordered">

@@ -64,11 +64,11 @@
 		<h3>Importante:</h3>
 		<ol>
 			<li>Su pedido se paga en efectivo al recibir los productos.</li>
-			<li>El tiempo de entrega sera dentro de las próximas 72 horas.</li>
+			<li>El tiempo de entrega sera dentro de las próximas 12 horas.</li>
 			<li>Al recibir el pedido debe mostrar su Número de referencia: <b>{{ $pedido->referencia }}</b></li>
 		</ol>
 		
-		<p><em>¡Gracias por su preferencia!</em></p>
+		<p><em>¡Gracias por elegirnos!</em></p>
 	</div>
 </body>
 </html>

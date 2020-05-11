@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\productos;
 use App\tipomedicamentos;
+// use App\Requests\ProductRequest;
+
 
 class ProductController extends Controller
 {
@@ -27,11 +29,20 @@ class ProductController extends Controller
 
 	public function store(Request $request)
 	{
-		if($request->hasFile('Imagen')) {
-			$file = $request->file('Imagen');
-			$filename = rand(111, 99999) . $file->getClientOriginalName();
+		 $this->validate($request,[
+			 'Nombre' => 'required|unique:productos,Nombre|max:10',
+		 	 'Imagen' => 'required',
+		 	 'Laboratorio' =>'required',
+		 	 'Precio' => 'required',
+			 'Lote' => 'required',  
+		 	 'FechaVencimiento' => 'required'
+		 ]);
 
-			if($file->move(base_path() . '/public/images/productos/', $filename)){
+		if($request->hasFile('Imagen')) { //Aqui valido si viene una nueva imagen para poder guardarla
+			$file = $request->file('Imagen'); //Aqui guardo mi nueva imagen
+			$filename = rand(111, 99999) . $file->getClientOriginalName();//Aqui utilizo esta funcion para que no se dupliquen los nombres, toma el nombre original y le antepone un numero aleatorio
+
+			if($file->move(base_path() . '/public/images/productos/', $filename)){ //Aqui muevo el archivo a la carpeta public/images/productos
 				productos::create([
 					'Nombre' => request('Nombre'),
 					'IdTipoMedicamento' => request('tipomedicamento'),
@@ -49,6 +60,7 @@ class ProductController extends Controller
 
 	public function edit($Id)
 	{
+	
 		$productos=productos::findOrFail($Id);
 		$medicamentos=tipomedicamentos::orderBy('Nombre','ASC')->get();
 
@@ -57,6 +69,15 @@ class ProductController extends Controller
 
 	public function update(Request $request, $Id)
 	{
+		$this->validate($request,[
+			'Nombre' => 'required|unique:productos,Nombre',
+			 'Imagen' => 'required',
+			 'Laboratorio' =>'required',
+			 'Precio' => 'required',
+			'Lote' => 'required',  
+			 'FechaVencimiento' => 'required'
+		]);
+
 		$productos = productos::findOrFail($Id);
 
 		if($request->hasFile('Imagen')) {

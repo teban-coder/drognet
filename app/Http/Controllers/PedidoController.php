@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; //Libreria para generar strings aleatorios
 use App\Pedido;
 use App\PedidoItem;
 
@@ -13,20 +13,20 @@ class PedidoController extends Controller
 	protected function procesar()
 	{
 		$subtotal = 0;
-		$carrito = \Session::get('carrito');
-		$envio = 100;
+		$carrito = \Session::get('carrito'); //Obtengo mi carrito de la variablde de sesion
+		$envio = 2000;
 
-		if (count($carrito) <= 0) {
+		if (count($carrito) <= 0) {  //Verifico que hallan productos en mi carrito
 			return \Redirect::route('products.home')
 				->with('message', 'Elija los productos que desea comprar');
 		}
  
-		foreach($carrito as $producto){
+		foreach($carrito as $producto){ //Recorro los items de mi carrito y obtengo el subtotal
 			$subtotal += $producto->cantidad * $producto->Precio;
 		}
  
-		$pedido = Pedido::create([
-			'user_id' => \Auth::user()->id,
+		$pedido = Pedido::create([  //Creo o genero mi pedido 
+			'user_id' => \Auth::user()->id, //Obtengo el id del usuario que ha iniciadon sesion
 			'tipopago_id' => 1,
 			'subtotal' => $subtotal,
 			'envio' => $envio,
@@ -34,7 +34,7 @@ class PedidoController extends Controller
 			'referencia' => Str::random(20)
 		]);
  
-		foreach($carrito as $producto){
+		foreach($carrito as $producto){//Recorro mi carrito y llamo mi metodo guardarPedidoItem y por cada producto se vaya guardando en mi tabla ventaproducto
 			$this->guardarPedidoItem($producto, $pedido->id);
 		}
 
@@ -43,10 +43,10 @@ class PedidoController extends Controller
 		\Session::forget('carrito');
 
 		return redirect()->route('products.home')
-			->with('msg', 'Hemos recibido tu pedido y te enviamos un correo de seguimiento, gracias por tu preferencia');
+			->with('msg', 'Hemos recibido tu pedido y te enviamos un correo de seguimiento, gracias por elegirnos');
 	}
  
-	protected function guardarPedidoItem($producto, $pedido_id)
+	protected function guardarPedidoItem($producto, $pedido_id) //Genero o creo los items para mi tabla pedido:items o venta producto
 	{
 		PedidoItem::create([
 			'pedido_id' => $pedido_id,
@@ -56,10 +56,10 @@ class PedidoController extends Controller
 		]);
 	}
 
-	protected function enviarCorreo($pedido, $carrito)
+	protected function enviarCorreo($pedido, $carrito) 
 	{
-		$to_email = \Auth::user()->email;
+		$to_email = \Auth::user()->email; //Obtengo el email del usuario que se ha logueado
 	   
-		\Mail::to($to_email)->send(new \App\Mail\PedidoMail($pedido, $carrito));
+		\Mail::to($to_email)->send(new \App\Mail\PedidoMail($pedido, $carrito)); // Cuando genero un nuevo objeto de esa clase Le digo que envie un nuevo correo al usuario que se almaceno en la variable $to_email utilizando mi clase PedidoMail y que le pase la informacion del pedido y del carrito
 	}
 }

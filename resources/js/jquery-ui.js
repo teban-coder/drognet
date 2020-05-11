@@ -36,7 +36,6 @@ var version = $.ui.version = "1.12.1";
 //>>demos: http://jqueryui.com/widget/
 
 
-
 var widgetUuid = 0;
 var widgetSlice = Array.prototype.slice;
 

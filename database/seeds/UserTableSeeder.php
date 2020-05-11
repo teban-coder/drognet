@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
         ],
         [
             'name' => 'Sofia',
-            'rol' => 'user',
+            'rol' => 'vendedor',
             'email' => 'sofia.sanalf@gmail.com',
             'password' => \Hash::make('123456'),
             'Direccion' => 'Manzana B casa#10',
@@ -33,7 +33,7 @@ class UserTableSeeder extends Seeder
         ],
         [
             'name' => 'Brayan',
-            'rol' => 'vendedor',
+            'rol' => 'admin',
             'email' => 'molisanta21@gmail.com',
             'password' => \Hash::make('123456'),
             'Direccion' => 'Manzana B casa#10',

@@ -3,7 +3,7 @@
 			<hr>
 		<p class="text-center"> Copyright &copy; <script>document.write(new Date().getFullYear());</script> 
 			Todos los derechos reservados | Desarrollado
-			por Esteban Martinez <i class="icon-heart" aria-hidden="true"></i>
+			por Esteban Martinez y Brayan Santafe <i class="icon-heart" aria-hidden="true"></i>
 		</p>
 		</footer>
 

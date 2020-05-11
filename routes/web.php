@@ -28,8 +28,6 @@ Route::get('/Nosotros', function () {
 
 Auth::routes();
 
-Route::get('/Productos/home', 'HomeController@index')->name('home');
-
 route::get('products','HomeController@products')->name('products.home');
 route::get('products/detail-{Id}','HomeController@detail')->name('products.detail');
 route::get('opinion','HomeController@opinion')->name('opinion');
@@ -50,6 +48,7 @@ Route::get('pedido/procesar', 'PedidoController@procesar')->name('pedido.procesa
 //Route::get('/payment', array('PaypalController@postPayment'))->name('payment.payment');
 //Route::get('payment/status', array('PaypalController@getPayment'))->name('payment.status');
 
+route::post('Direccion/direccion','DireccionController@direccion')->name('direccion.direccion');
 
 // Panel de administración
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function(){
@@ -85,7 +84,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 
 	//Rutas para la tabla Opinions (Quejas y Sugerencias)
 	route::get('opinions/index','OpinionController@index')->name('admin.opinions.index');
-	route::get('opinions/create','OpinionController@create')->name('admin.opinions.create');
 	route::post('opinions/store','OpinionController@store')->name('admin.opinions.store');
 	route::get('opinions/edit/{Id}','OpinionController@edit')->name('admin.opinions.edit');
 	route::post('opinions/update/{Id}','OpinionController@update')->name('admin.opinions.update');

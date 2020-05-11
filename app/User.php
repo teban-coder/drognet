@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,6 +39,12 @@ class User extends Authenticatable
 	];
 
 	protected $primaryKey ='id';
+
+	
+    // public function sendPasswordResetNotification($token)
+    // {
+    //     $this->notify(new CambiarPassword($token));
+    // }
 
 	protected $roles = ['user', 'admin', 'vendedor'];
 

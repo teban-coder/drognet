@@ -9,7 +9,7 @@ class Carritocontroller extends Controller
 {
     //
 
-    public function __construct()
+    public function __construct() //Si no existe ninguna variable de session carrito entonces la creo y guardo un array vacio en la variable de session carrito
     {
         if(!\Session::has('carrito')) \Session::put('carrito', array());
     }
@@ -74,7 +74,6 @@ class Carritocontroller extends Controller
             return view ('Factura.factura', compact('carrito', 'total'));
 
     }
-
 
 
 }

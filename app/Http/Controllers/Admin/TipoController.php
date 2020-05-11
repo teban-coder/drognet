@@ -22,6 +22,10 @@ class TipoController extends Controller
 
 	public function store(Request $request)
 	{
+		$this->validate($request, [
+			'Nombre' => 'required|unique:tipomedicamentos,Nombre|max:10'
+		]);
+
 		tipomedicamentos::create([
 			'Nombre' => request('Nombre'),
 		]);
@@ -31,6 +35,7 @@ class TipoController extends Controller
 
 	public function edit($Id)
 	{
+	
 		$tipo = tipomedicamentos::findOrFail($Id);
 
 		return view('admin.tipos.edit', compact('tipo'));
@@ -49,8 +54,8 @@ class TipoController extends Controller
 
 	public function delete($Id)
 	{
-		$tipo = tipomedicamentos::findOrFail($Id); // Verificar dependencias para evitar una excepción
-		$tipo->delete();
+		$tipo = tipomedicamentos::findOrFail($Id); // Verificar dependencias o integridad referencial para evitar una excepción	
+		$tipo->delete();						
 		
 		return redirect()->route('admin.tipos.index');
 	}

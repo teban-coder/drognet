@@ -31,7 +31,7 @@ class HomeController extends Controller
 	{
 		$productos = \DB::table('productos')
 		->join('tipomedicamentos','tipomedicamentos.IdTipoMedicamento','productos.IdTipoMedicamento')
-		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen','productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip')->paginate(10);
+		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen','productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip')->paginate(9);
 
 		return view('productos/home',['productos'=>$productos]);
 	}
@@ -54,12 +54,17 @@ class HomeController extends Controller
 
 	public function opinionStore(Request $request)
 	{
+		$this->validate($request, [
+			'tema' => 'required',
+			'mensaje' => 'required'
+		]);
+
 		 Opinion::create([
 			'tema' => request('tema'),
 			'mensaje'=>request('mensaje'),
 		]);
 
 		return redirect()->route('opinion')
-			->with('msg', 'Su mensaje se han enviado correctamente');
+			->with('msg', 'Su mensaje se ha enviado correctamente');
 	}
 }

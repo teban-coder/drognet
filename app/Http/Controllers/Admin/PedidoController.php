@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Pedido;
 use App\PedidoItem;
 use App\productos;
+use App\User;
 
 class PedidoController extends Controller
 {
@@ -42,4 +43,6 @@ class PedidoController extends Controller
 
 		return redirect()->route('admin.pedidos.index');
 	}
+
+	
 }
