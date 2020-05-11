@@ -34,12 +34,12 @@ route::get('opinion','HomeController@opinion')->name('opinion');
 route::post('opinion-store','HomeController@opinionStore')->name('opinion.store');
 
 //Rutas para el carrito
-Route::get('/Carrito/carrito', '/App/Http/Controllers/CarritoController@show')->name('carrito.carrito');
-Route::get('/Carrito/create/{productos}', '/App/Http/Controllers/CarritoController@create')->name('carrito.create');
-Route::get('/Carrito/delete/{productos}', '/App/Http/Controllers/CarritoController@delete')->name('carrito.delete');
-Route::get('/Carrito/eliminar', '/App/Http/Controllers/CarritoController@trash')->name('carrito.eliminar');
-Route::get('/Carrito/update/{productos}/{cantidad?}', '/App/Http/Controllers/CarritoController@update')->name('carrito.update');
-Route::get('/Factura/factura','/App/Http/Controllers/CarritoController@factura')->name('factura.factura')->middleware('auth');
+Route::get('/Carrito/carrito', 'CarritoController@show')->name('carrito.carrito');
+Route::get('/Carrito/create/{productos}', 'CarritoController@create')->name('carrito.create');
+Route::get('/Carrito/delete/{productos}', 'CarritoController@delete')->name('carrito.delete');
+Route::get('/Carrito/eliminar', 'CarritoController@trash')->name('carrito.eliminar');
+Route::get('/Carrito/update/{productos}/{cantidad?}', 'CarritoController@update')->name('carrito.update');
+Route::get('/Factura/factura','CarritoController@factura')->name('factura.factura')->middleware('auth');
 
 // Rutas para procesar el pedido
 Route::get('pedido/procesar', 'PedidoController@procesar')->name('pedido.procesar');
