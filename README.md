@@ -1,4 +1,4 @@
-# Droguería Laravel
+# Drognet
 
 Proyecto Laravel para una tienda online.
 
