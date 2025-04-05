@@ -1,19 +1,17 @@
 # Droguería Laravel
 
-Proyecto Laravel para gestionar una droguería (ejercicio académico).
+Proyecto Laravel para una tienda online.
 
 ## 🚀 Requisitos
 
-- PHP 8.x
+- PHP 
 - Composer
 - MySQL o MariaDB
-- Node.js (opcional, si usas frontend con Vite o npm)
 
 ## ⚙️ Instalación
 
-1. Clona el repositorio:
-
 ```bash
+1. Clona el repositorio:
 git clone https://github.com/teban-coder/drognet.git
 cd drognet
 
