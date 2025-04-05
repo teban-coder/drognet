@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
 
 
 <div class="site-blocks-cover inner-page" style="background-image: url('images/productos/hero_1.jpg');">
@@ -37,7 +37,7 @@
           <h2 class="text-black">Como Empezamos</h2>
         </div>
         <p>El coordinador de la oficina de Medicamentos de la Territorial de Salud expresó :
-           «debemos tener identificado los procesos de estimación de necesidades, recepción, 
+           «debemos tener identificado los procesos de estimación de necesidades, recepción,
            almacenamiento, dispensación de medicamentos, controles de humedad y de temperatura; entonces,
            ya que algunas personas que comercian medicamentos no manejan estos conceptos, nosotros los capacitamos».</p>
 
@@ -69,7 +69,7 @@
         </div>
         <p class="text-black">Somos una empresa que nace con el único objetivo de ser una constructora confiable, innovadora y dinámica, teniendo en cuenta que la calidad,
            atención, puntualidad y servicio será siempre el único camino para llegar al éxito. </p>
-        <p class="text-black">Satisfacer las necesidades y requerimientos de nuestros clientes internos y externos, implementando nuestro profesionalismo y 
+        <p class="text-black">Satisfacer las necesidades y requerimientos de nuestros clientes internos y externos, implementando nuestro profesionalismo y
           ética en cada uno de nuestros servicios de construcción, mantenimiento, proyectos y gestoría.</p>
 
       </div>
@@ -86,7 +86,7 @@
         </div>
         <div class="text">
           <h2>Envio a tan solo $2000 </h2>
-          
+
         </div>
       </div>
       <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -95,7 +95,7 @@
         </div>
         <div class="text">
           <h2>Devoluciones Gratis</h2>
-  
+
         </div>
       </div>
       <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -104,7 +104,7 @@
         </div>
         <div class="text">
           <h2>Atencion Al Cliente</h2>
-         
+
         </div>
       </div>
     </div>
@@ -121,23 +121,31 @@
         <div class="row">
             <div class="col-md-6 col-lg-6 mb-5">
 
-                <div class="block-38 text-center">
-                    <div class="block-38-img">
-                        <div class="block-38-header">
-                            <img src="images/productos/manisql.jpg" alt="Image placeholder" class="mb-4">
-                            <h3 class="block-38-heading h4">Esteban Martinez</h3>
-                            <p class="block-38-subheading">Desarrollador</p>
-                        </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="block-38 text-center">
+                <div class="block-38-img">
+                    <div class="block-38-header">
+
+                    <img src="images/productos/esteban.jpg" alt="Image placeholder" class="mb-4">
+                    <h3 class="block-38-heading h4">Esteban Martinez</h3>
+                    <p class="block-38-subheading">Desarrollador</p>
                     </div>
+
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 mb-5">
-                <div class="block-38 text-center">
-                    <div class="block-38-img">
-                        <div class="block-38-header">
-                            <img src="images/productos/santa.jpg" alt="Image placeholder" class="mb-4">
-                            <h3 class="block-38-heading h4">Brayan Santafe</h3>
-                            <p class="block-38-subheading">Desarrollador</p>
-                        </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
 @endsection
+

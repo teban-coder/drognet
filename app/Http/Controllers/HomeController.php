@@ -31,7 +31,7 @@ class HomeController extends Controller
 	{
 		$productos = \DB::table('productos')
 		->join('tipomedicamentos','tipomedicamentos.IdTipoMedicamento','productos.IdTipoMedicamento')
-		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen','productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip')->paginate(9);
+		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen', 'productos.stock','productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip')->paginate(9);
 
 		return view('productos/home',['productos'=>$productos]);
 	}
@@ -41,7 +41,7 @@ class HomeController extends Controller
 		$productos = \DB::table('productos') 
 		->join('tipomedicamentos','tipomedicamentos.IdTipoMedicamento','productos.IdTipoMedicamento')
 		->select('productos.FechaVencimiento','productos.IdProducto','productos.Nombre as Nombre','productos.Imagen'
-		,'productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip','productos.Lote')
+		, 'productos.stock', 'productos.Precio','productos.Laboratorio','tipomedicamentos.Nombre as tip','productos.Lote')
 		->where('productos.IdProducto','=',$Id)->get();
 
 		return view('productos/detail',['productos'=>$productos]);
@@ -67,4 +67,15 @@ class HomeController extends Controller
 		return redirect()->route('opinion')
 			->with('msg', 'Su mensaje se ha enviado correctamente');
 	}
+
+	public function numeros()
+	{
+		
+		for ($i=1; $i <=100 ; $i++) { 
+			return $i;
+
+			}
+	}
+	
+
 }

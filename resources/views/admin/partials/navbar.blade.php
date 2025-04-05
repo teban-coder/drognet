@@ -22,6 +22,11 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{{ route('admin.users.index') }}">Usuarios</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link bg-primary rounded" href="{{ route('admin.carrito.index') }}">
+					<i class="fa fa-plus"></i> Venta
+				</a>
+			</li>
 			&nbsp;&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	
 
 			<li class="nav-item dropdown">

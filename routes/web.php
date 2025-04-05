@@ -19,7 +19,7 @@ Route::bind('productos', function($Lote){
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 Route::get('/Nosotros', function () {
     return view('Nosotros');
@@ -27,6 +27,14 @@ Route::get('/Nosotros', function () {
 
 
 Auth::routes();
+
+//rutas para editar cliente
+route::get('/numeros','HomeController@numeros')->name('numeros.index');
+route::get('/Cliente/index','ClienteController@index')->name('cliente.index');
+route::get('/Cliente/update/{id}','ClienteController@update')->name('cliente.update')->middleware('auth');
+route::get('/Cliente/update/factura/{id}','ClienteController@updateFacturacion')->name('factura.update');
+
+
 
 route::get('products','HomeController@products')->name('products.home');
 route::get('products/detail-{Id}','HomeController@detail')->name('products.detail');
@@ -48,7 +56,6 @@ Route::get('pedido/procesar', 'PedidoController@procesar')->name('pedido.procesa
 //Route::get('/payment', array('PaypalController@postPayment'))->name('payment.payment');
 //Route::get('payment/status', array('PaypalController@getPayment'))->name('payment.status');
 
-route::post('Direccion/direccion','DireccionController@direccion')->name('direccion.direccion');
 
 // Panel de administración
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function(){
@@ -62,9 +69,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 	route::get('products/delete/{Id}','ProductController@delete')->name('admin.products.delete');
 
 	//Rutas para la tabla Pedidos
-	route::get('pedidos/index','PedidoController@index')->name('admin.pedidos.index');
+	route::get('pedidos/index/{tipo?}','PedidoController@index')->name('admin.pedidos.index');
 	route::get('pedidos/detail/{Id}','PedidoController@detail')->name('admin.pedidos.detail');
 	route::get('pedidos/delete/{Id}','PedidoController@delete')->name('admin.pedidos.delete');
+	route::get('pedidos/procesar','PedidoController@procesar')->name('admin.pedidos.procesar');
 
 	//Rutas para la tabla Tipos de medicamentos
 	route::get('tipos/index','TipoController@index')->name('admin.tipos.index');
@@ -88,5 +96,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 	route::get('opinions/edit/{Id}','OpinionController@edit')->name('admin.opinions.edit');
 	route::post('opinions/update/{Id}','OpinionController@update')->name('admin.opinions.update');
 	route::get('opinions/delete/{Id}','OpinionController@delete')->name('admin.opinions.delete');
+
+	//Rutas para las ventas presenciales
+	route::get('carrito','Carrito2Controller@index')->name('admin.carrito.index');
+	route::get('carrito/create/{productos}', 'Carrito2Controller@create')->name('admin.carrito.create');
+	route::get('carrito/delete/{productos}', 'Carrito2Controller@delete')->name('admin.carrito.delete');
+	route::get('carrito/eliminar', 'Carrito2Controller@trash')->name('admin.carrito.eliminar');
+	route::get('carrito/update/{productos}/{cantidad?}', 'Carrito2Controller@update')->name('admin.carrito.update');
 
 });

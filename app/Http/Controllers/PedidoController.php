@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str; //Libreria para generar strings aleatorios
 use App\Pedido;
 use App\PedidoItem;
+use App\productos;
 
 class PedidoController extends Controller
 {
@@ -16,7 +17,7 @@ class PedidoController extends Controller
 		$carrito = \Session::get('carrito'); //Obtengo mi carrito de la variablde de sesion
 		$envio = 2000;
 
-		if (count($carrito) <= 0) {  //Verifico que hallan productos en mi carrito
+		if (count($carrito) <= 0) {  //Verifico que halla productos en mi carrito
 			return \Redirect::route('products.home')
 				->with('message', 'Elija los productos que desea comprar');
 		}
@@ -48,11 +49,22 @@ class PedidoController extends Controller
  
 	protected function guardarPedidoItem($producto, $pedido_id) //Genero o creo los items para mi tabla pedido:items o venta producto
 	{
-		PedidoItem::create([
+		$item = PedidoItem::create([
 			'pedido_id' => $pedido_id,
 			'producto_id' => $producto->IdProducto,
 			'cantidad' => $producto->cantidad,
 			'precio' => $producto->Precio,
+		]);
+
+		$this->actualizarStock($item);
+	}
+
+	protected function actualizarStock($item)
+	{
+		$producto = productos::findOrFail($item->producto_id);
+
+		$producto->update([
+			'stock' => $producto->stock - $item->cantidad
 		]);
 	}
 
@@ -60,6 +72,7 @@ class PedidoController extends Controller
 	{
 		$to_email = \Auth::user()->email; //Obtengo el email del usuario que se ha logueado
 	   
-		\Mail::to($to_email)->send(new \App\Mail\PedidoMail($pedido, $carrito)); // Cuando genero un nuevo objeto de esa clase Le digo que envie un nuevo correo al usuario que se almaceno en la variable $to_email utilizando mi clase PedidoMail y que le pase la informacion del pedido y del carrito
+		\Mail::to($to_email)->send(new \App\Mail\PedidoMail($pedido, $carrito)); // Cuando genero un nuevo objeto de esa clase Le digo que envie un nuevo correo al usuario que se almaceno en la variable $to_email 
+		                                                                         //utilizando mi clase PedidoMail y que le pase la informacion del pedido y del carrito
 	}
 }

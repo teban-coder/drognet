@@ -9,6 +9,9 @@
 			<thead>
 				<th>Id</th>
 				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Documento</th>
+				<th>Celular</th>
 				<th>Correo</th>
 				<th>Rol</th>
 				<th>Dirección</th>
@@ -19,6 +22,9 @@
 				<tr>
 					<td>{{ $item->id }}</td>
 					<td>{{ $item->name }}</td>
+					<td>{{ $item->apellido }}</td>
+					<td>{{ $item->documento }}</td>
+					<td>{{ $item->celular }}</td>
 					<td>{{ $item->email }}</td>
 					<td>{{ $item->rol }}</td>
 					<td>{{ $item->Direccion }}</td>

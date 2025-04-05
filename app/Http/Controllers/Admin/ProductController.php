@@ -11,11 +11,21 @@ use App\tipomedicamentos;
 
 class ProductController extends Controller
 {
-	public function index()
+	public function index(Request $request)
 	{
-		$productos = \DB::table('productos')
+
+		$tip    = $request->get('tip');
+		$Nombre = $request->get('Nombre');
+		$Laboratorio = $request->get('Laboratorio');
+
+
+		$productos = productos::OrderBy('IdProducto', 'ASC')
 		->join('tipomedicamentos','tipomedicamentos.IdTipoMedicamento','productos.IdTipoMedicamento')
-		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen','productos.Precio','productos.FechaVencimiento','productos.Laboratorio','tipomedicamentos.Nombre as tip')->paginate(10);
+		->select('productos.Lote','productos.IdProducto','productos.Nombre','productos.Imagen','productos.stock','productos.Precio','productos.FechaVencimiento','productos.Laboratorio','tipomedicamentos.nombre as tip')
+		->Laboratorio($Laboratorio)
+		->Nombre($Nombre)
+		->tip($tip)
+		->paginate(4);
 
 		return view('admin.products.index',['productos'=>$productos]);
 	}
@@ -33,6 +43,7 @@ class ProductController extends Controller
 			 'Nombre' => 'required|unique:productos,Nombre|max:10',
 		 	 'Imagen' => 'required',
 		 	 'Laboratorio' =>'required',
+		 	 'stock' => 'required',
 		 	 'Precio' => 'required',
 			 'Lote' => 'required',  
 		 	 'FechaVencimiento' => 'required'
@@ -48,6 +59,7 @@ class ProductController extends Controller
 					'IdTipoMedicamento' => request('tipomedicamento'),
 					'Imagen' => $filename,
 					'Laboratorio' => request('Laboratorio'),
+					'stock' => request('stock'),
 					'Precio' => request('Precio'),
 					'Lote' => request('Lote'),
 					'FechaVencimiento' => request('FechaVencimiento')
@@ -64,19 +76,12 @@ class ProductController extends Controller
 		$productos=productos::findOrFail($Id);
 		$medicamentos=tipomedicamentos::orderBy('Nombre','ASC')->get();
 
-		return view('admin.products.edit')->with('productos',$productos)->with('medicamentos',$medicamentos);
+		return view('admin.products.edit')
+		->with('productos',$productos)->with('medicamentos',$medicamentos);
 	}
 
 	public function update(Request $request, $Id)
 	{
-		$this->validate($request,[
-			'Nombre' => 'required|unique:productos,Nombre',
-			 'Imagen' => 'required',
-			 'Laboratorio' =>'required',
-			 'Precio' => 'required',
-			'Lote' => 'required',  
-			 'FechaVencimiento' => 'required'
-		]);
 
 		$productos = productos::findOrFail($Id);
 
@@ -92,6 +97,7 @@ class ProductController extends Controller
 			'IdTipoMedicamento' => request('medicamento'),
 			'Imagen' => $request->hasFile('Imagen') ? $filename : $productos->Imagen,
 			'Laboratorio' => request('Laboratorio'),
+			'stock' => request('stock'),
 			'Precio' => request('Precio'),
 			'Lote' => request('Lote'),
 			'FechaVencimiento' => request('FechaVencimiento')

@@ -30,6 +30,9 @@ class UserController extends Controller
 
 		$user->update([
 			'name' => request('name'),
+			'apellido' => request('apellido'),
+			'documento' => request('documento'),
+			'celular' => request('celular'),
 			'email' => request('email'),
 			'rol' => request('rol'),
 			'Direccion' => request('Direccion'),

@@ -13,7 +13,7 @@ class Pedido extends Model
 	];
 
 	protected $fillable = [
-	   'id','user_id','tipopago_id', 'fecha', 'referencia', 'envio', 'subtotal'
+	   'id','user_id','tipopago_id', 'fecha', 'referencia', 'envio', 'subtotal', 'tipo'
 	];
 
 	public function pedidoItems()
@@ -25,4 +25,10 @@ class Pedido extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
+	public function scopefecha($query, $fecha)
+    {
+        if($fecha)
+            return $query->where('fecha', 'LIKE', "%$fecha%");
+        
+    }
 }

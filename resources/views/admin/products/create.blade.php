@@ -28,7 +28,7 @@
 
 					<select name="tipomedicamento" id="" class="form-control">
 						@forelse ($tipomedicamento as $item)
-							<option value="{{$item->IdTipoMedicamento}}">{{$item->Nombre}}</option>
+							<option value="{{$item->IdTipoMedicamento}}">{{$item->nombre}}</option>
 						@empty
 							---	
 						@endforelse	
@@ -45,9 +45,15 @@
 					<input type="text" class="form-control" name="Laboratorio" id="nombre" >
 				</div>
 
-				<div class="form-group">
-					<label for="nombre">Precio</label>
-					<input type="number" class="form-control" name="Precio" id="nombre" >
+				<div class="form-group row">
+					<div class="col-md-6">
+						<label for="stock">Stock</label>
+						<input type="number" class="form-control" name="stock" id="stock" value="0">
+					</div>
+					<div class="col-md-6">
+						<label for="nombre">Precio</label>
+						<input type="number" class="form-control" name="Precio" id="nombre" >
+					</div>
 				</div>
 
 				<div class="form-group">

@@ -17,7 +17,7 @@ class User extends Authenticatable
 	 * @var array
 	 */
 	protected $fillable = [
-	   'id','name', 'email', 'password','Direccion', 'rol'
+	   'id','name','apellido','documento','celular', 'email', 'password','Direccion', 'rol'
 	];
 
 	/**
@@ -46,7 +46,7 @@ class User extends Authenticatable
     //     $this->notify(new CambiarPassword($token));
     // }
 
-	protected $roles = ['user', 'admin', 'vendedor'];
+	protected $roles = ['cliente', 'admin', 'vendedor'];
 
 	public function roles($index = null)
 	{

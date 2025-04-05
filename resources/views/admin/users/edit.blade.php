@@ -1,5 +1,4 @@
 @extends('admin.app')
-
 @section('content')
 	<h3 class="text-center p-3"><small>Editar usuario</small></h3>
 
@@ -10,6 +9,18 @@
 				<div class="form-group">
 					<label for="nombre">Nombre</label>
 					<input type="text" class="form-control" name="name" value="{{$user->name}}" placeholder="Nombre del usuario">
+				</div>
+				<div class="form-group">
+					<label for="nombre">Apellido</label>
+					<input type="text" class="form-control" name="apellido" value="{{$user->apellido}}" placeholder="Apellido del usuario">
+				</div>
+				<div class="form-group">
+					<label for="nombre">Documento</label>
+					<input type="text" class="form-control" name="documento" value="{{$user->documento}}" placeholder="Documento del usuario">
+				</div>
+				<div class="form-group">
+					<label for="nombre">Celular</label>
+					<input type="text" class="form-control" name="celular" value="{{$user->celular}}" placeholder="Celular del usuario">
 				</div>
 				<div class="form-group">
 					<label for="email">Correo</label>

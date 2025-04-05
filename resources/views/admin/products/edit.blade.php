@@ -2,15 +2,7 @@
 
 @section('content')
 	<h3 class="text-center p-3"><small>Editar producto</small></h3>
-	@if(count($errors))
-	<div class="alert alert-danger">
-		<ul>
-			@foreach ($errors->all() as $error)
-				<li class="fa fa-danger">{{ $error }}</li>
-			@endforeach
-		</ul>
-	</div>
-@endif 
+	
 	<form action="{{route('admin.products.update', $productos->IdProducto)}}" method="POST" class="p-3 form" enctype="multipart/form-data">
 		@csrf
 		<div class="row justify-content-md-center">
@@ -24,9 +16,9 @@
 					<select name="medicamento" id="" class="form-control">
 						@forelse ($medicamentos as $item)
 							@if($productos->IdTipoMedicamento==$item->IdTipoMedicamento)
-								<option value="{{$item->IdTipoMedicamento}}" selected>{{$item->Nombre}}</option>
+								<option value="{{$item->IdTipoMedicamento}}" selected>{{$item->nombre}}</option>
 							@else
-								<option value="{{$item->IdTipoMedicamento}}">{{$item->Nombre}}</option>
+								<option value="{{$item->IdTipoMedicamento}}">{{$item->nombre}}</option>
 							@endif
 						@empty
 							---	
@@ -51,9 +43,16 @@
 					<input type="text" class="form-control" name="Laboratorio" id="nombre" value="{{$productos->Laboratorio}}">
 				</div>
 
-				<div class="form-group">
-					<label for="nombre">Precio</label>
-					<input type="number" class="form-control" name="Precio" id="nombre" value="{{$productos->Precio}}" >
+				<div class="form-group row">
+					<div class="col-md-6">
+						<label for="stock">Stock</label>
+						<input type="number" class="form-control" name="stock" id="stock" value="{{$productos->stock}}" min="0">
+					</div>
+					<div class="col-md-6">
+						<label for="nombre">Precio</label>
+						<input type="number" class="form-control" name="Precio" id="nombre" value="{{$productos->Precio}}" >
+					</div>
+					
 				</div>
 
 				<div class="form-group">

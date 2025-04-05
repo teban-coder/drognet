@@ -16,4 +16,20 @@ class Opinion extends Model
 	{
 		return self::$temas;
 	}
+
+//Query Scope
+
+public function scopeTema($query, $tema)
+{
+	if($tema)
+		return $query->where('tema', 'LIKE', "%$tema%");
+	
+	}
+
+public function scopeMensaje ($query, $mensaje)
+{
+	if($mensaje)
+		return $query->where('mensaje', 'LIKE', "%$mensaje%");
+	
+	}
 }

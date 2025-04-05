@@ -16,6 +16,9 @@ class UserTableSeeder extends Seeder
         [  
          'name' => 'Esteban',
          'rol' => 'admin',
+         'apellido' => 'Martinez',
+         'documento' => '1002395029',
+         'celular' =>'3172248906', 
          'email' => 'esteban.martinez2011@hotmail.com',
          'password' => \Hash::make('123456'),
          'Direccion' => 'Manzana B casa#10',
@@ -25,6 +28,9 @@ class UserTableSeeder extends Seeder
         [
             'name' => 'Sofia',
             'rol' => 'vendedor',
+            'apellido' => 'Martinez',
+            'documento' => '1002395029',
+            'celular' =>'3172248906', 
             'email' => 'sofia.sanalf@gmail.com',
             'password' => \Hash::make('123456'),
             'Direccion' => 'Manzana B casa#10',
@@ -34,6 +40,9 @@ class UserTableSeeder extends Seeder
         [
             'name' => 'Brayan',
             'rol' => 'admin',
+            'apellido' => 'Martinez',
+            'documento' => '1002395029',
+            'celular' =>'3172248906', 
             'email' => 'molisanta21@gmail.com',
             'password' => \Hash::make('123456'),
             'Direccion' => 'Manzana B casa#10',

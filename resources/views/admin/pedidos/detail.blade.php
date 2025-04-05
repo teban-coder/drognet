@@ -9,6 +9,8 @@
 			<thead>
 				<th>Fecha</th>
 				<th>Cliente</th>
+				<th>Vendedor</th>
+				<th>Tipo de venta</th>
 				<th>Tipo de pago</th>
 				<th>Subtotal</th>
 				<th>Envío</th>
@@ -19,7 +21,14 @@
 			<tbody>
 				<tr>
 					<td>{{ $pedido->fecha->format('d/m/Y') }}</td>
-					<td>{{ $pedido->user->name }}</td>
+					@if ($pedido->tipo == 'web')
+						<td>{{ $pedido->user->name}} {{ $pedido->user->apellido}}</td>
+						<td>---</td>
+					@else
+						<td>---</td>
+						<td>{{ $pedido->user->name}} {{ $pedido->user->apellido}}</td>
+					@endif
+					<td>{{ $pedido->tipo}}</td>
 					<td>Contra entrega</td>
 					<td>{{ number_format($pedido->subtotal, 2) }}</td>
 					<td>{{ number_format($pedido->envio, 2) }}</td>

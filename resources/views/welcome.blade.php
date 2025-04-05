@@ -86,7 +86,7 @@
               <span class="tag">Rebaja</span>
               <a href="{{route('products.home')}}"> <img src="images/productos/7501056326173.jpg" width="350px" height="400px"></a>
               <h3 class="text-dark"><a href="{{route('products.home')}}">Crema Ponds</a></h3>
-              <p class="price"><del>70.000</del> &mdash; $55.00</p>
+              <p class="price"> $55.00</p>
             </div>
             <div class="col-sm-6 col-lg-4 text-center item mb-4">
               <a href="{{route('products.home')}}"> <img src="images/productos/product_01.png" width="350px" height="430px"></a>
@@ -103,7 +103,7 @@
   
               <a href="{{route('products.home')}}"> <img src="images/productos/product_04.png" alt="Image"></a>
               <h3 class="text-dark"><a href="{{route('products.home')}}">Cetyl Pure</a></h3>
-              <p class="price"><del>45.00</del> &mdash; $20.000</p>
+              <p class="price"> $20.000</p>
             </div>
             <div class="col-sm-6 col-lg-4 text-center item mb-4">
               <a href="{{route('products.home')}}"> <img src="images/productos/product_05.png" alt="Image"></a>
@@ -114,7 +114,7 @@
               <span class="tag">Rebaja</span>
               <a href="{{route('products.home')}}"> <img src="images/productos/product_06.png" alt="Image"></a>
               <h3 class="text-dark"><a href="{{route('products.home')}}">Poo Pourri</a></h3>
-              <p class="price"><del>$89.000</del> &mdash; $38.000</p>
+              <p class="price"> $38.000</p>
             </div>
           </div>
           <div class="row mt-5">

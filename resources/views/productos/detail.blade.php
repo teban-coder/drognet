@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
 <div class="site-section">
   <div class="container" id="lista-productos">
       <div class="row">
@@ -11,9 +9,24 @@
               </div>
           </div>
           <div class="col-md-6">
-          <h4 class="text-black">{{$productos[0]->Nombre}}</h4>
-          <h1 class="precio"><p><del>$95.00</del>  <span class="text-primary">{{$productos[0]->Precio}}</span></p></h1>
-            <a href="{{route('carrito.create',$productos[0]->Lote)}}"class="btn btn-sm height-auto px-4 py-3 btn-primary" data-id="1">Añadir al carrito</a>
+          <h4 class="text-black">
+              {{$productos[0]->Nombre}}
+              @if ($productos[0]->stock <= 0)
+                <span class="badge badge-danger">Agotado</span>
+              @else
+                <span class="badge badge-success">Disponibles: {{ $productos[0]->stock }}</span>
+              @endif
+         </h4>
+          <h1 class="precio"><p><span class="text-primary">${{$productos[0]->Precio}}</span></p></h1>
+          @if ($productos[0]->stock <= 0)
+            <p class="alert alert-danger">
+                <i class="fas fa-info-circle"></i> Lo sentimos este producto se encuentra agotado.
+            </p>
+          @else
+              <a href="{{route('carrito.create',$productos[0]->Lote)}}" class="btn btn-sm height-auto px-4 py-3 btn-primary" data-id="1">
+                Añadir al carrito
+            </a>
+          @endif
                <div class="mt-5">
                   <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
                       <li class="nav-item">

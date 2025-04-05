@@ -33,6 +33,9 @@
 		<h3>Cliente</h3>
 		<table>
 			<tr><td>Nombre</td><td>{{ \Auth::user()->name }}</td></tr>
+			<tr><td>Apellido</td><td>{{ \Auth::user()->apellido }}</td></tr>
+			<tr><td>Documento</td><td>{{ \Auth::user()->documento }}</td></tr>
+			<tr><td>Celular</td><td>{{ \Auth::user()->celular }}</td></tr>
 			<tr><td>Correo</td><td>{{ \Auth::user()->email }}</td></tr>
 			<tr><td>Dirección</td><td>{{ \Auth::user()->Direccion }}</td></tr>
 		</table>
@@ -64,7 +67,7 @@
 		<h3>Importante:</h3>
 		<ol>
 			<li>Su pedido se paga en efectivo al recibir los productos.</li>
-			<li>El tiempo de entrega sera dentro de las próximas 12 horas.</li>
+			<li>El tiempo de entrega sera dentro de las próximas 4 horas.</li>
 			<li>Al recibir el pedido debe mostrar su Número de referencia: <b>{{ $pedido->referencia }}</b></li>
 		</ol>
 		

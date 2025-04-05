@@ -8,10 +8,15 @@ use App\Opinion;
 
 class OpinionController extends Controller
 {
-	public function index()
+	public function index(Request $request)
 	{
-		$opinions = Opinion::orderBy('created_at', 'desc')->paginate(10);
+		$tema= $request->get('tema');
+		$mensaje = $request->get('mensaje');
 
+		$opinions = Opinion::orderBy('created_at', 'desc')
+		->tema($tema)
+		->mensaje($mensaje)
+		->paginate(4);
 		return view('admin.opinions.index', compact('opinions'));
 	}
 

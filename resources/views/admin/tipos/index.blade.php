@@ -15,7 +15,7 @@
 				@forelse ($tipos as $item)
 				<tr>
 					<td>{{ $item->IdTipoMedicamento }}</td>
-					<td>{{ $item->Nombre }}</td>
+					<td>{{ $item->nombre }}</td>
 					
 
 					<td class="text-center">
